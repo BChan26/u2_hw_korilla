@@ -6,3 +6,11 @@
 .name {
   text-align: center;
 }
+
+
+.orders {
+  border: 1px solid black;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+}

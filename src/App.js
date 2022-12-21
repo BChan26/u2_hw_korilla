@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Receipt from './components/Receipt'
 
 const receipts = [
   {
@@ -46,13 +47,22 @@ const receipts = [
   },
 ];
 
+//this ternary is structured with a value ? true:false conditions
+//since there is null after ? and before :, nothing happens. We want this because they've already paid their receipt.
+//Since the right of the colon is false, then we want the receipt to spit out
+
 function App() {
   return (
     <>
-      <header>
-        <h1 className="name">Korilla</h1>
-      </header>
-      <main></main>
+      <main>
+        {receipts.map((info) => (
+          info.paid ? null :
+            <Receipt
+            key={receipts.id}
+            person={info.person}
+            order={info.order}/>
+        ))}
+      </main>
     </>
   );
 }
